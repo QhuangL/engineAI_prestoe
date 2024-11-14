@@ -81,17 +81,17 @@ class PrestoeCfg(LeggedRobotCfg):
         default_joint_angles = {  # = target angles [rad] when action = 0.0
             'bR_hipyaw': 0.0,
             'R_hiproll': 0.0,
-            'R_hippitch': -0., #0.16,
-            'R_knee': 0.,  #0.56,
-            'R_anklepitch': -0.,  #0.40,
+            'R_hippitch': -0.16, #0.16,
+            'R_knee': 0.56,  #0.56,
+            'R_anklepitch': -0.4,  #0.40,
             'R_ankleroll': 0.0,
             'R_toepitch': 0.0,
             
             'cL_hipyaw': 0.0,
             'L_hiproll': 0.0,
-            'L_hippitch': -0.,  #0.16,
-            'L_knee': 0.,  #0.56,
-            'L_anklepitch': -0.,  #0.40,
+            'L_hippitch': -0.16,  #0.16,
+            'L_knee': 0.56,  #0.56,
+            'L_anklepitch': -0.40,  #0.40,
             'L_ankleroll': 0.0,
             'L_toepitch': 0.0,
         }
@@ -196,7 +196,7 @@ class PrestoeCfg(LeggedRobotCfg):
         min_dist = 0.15
         max_dist = 0.8
         # put some settings here for LLM parameter tuning
-        target_joint_pos_scale = 0.26    # rad ?
+        target_joint_pos_scale = 0.1    # rad ? 0.26
         target_feet_height = 0.10       # m  ?
         cycle_time = 0.8                # sec ??
         only_positive_rewards = True

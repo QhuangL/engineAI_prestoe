@@ -60,18 +60,22 @@ class Prestoe(LeggedRobot):
         sin_pos_r = sin_pos.clone()
         self.ref_dof_pos = torch.zeros_like(self.dof_pos)
         scale_1 = self.cfg.rewards.target_joint_pos_scale
-        scale_2 = 2 * scale_1
+        scale_2 = 1.6 * scale_1
+        scale_3 = 5.6 * scale_1
+        scale_4 = 4.0 * scale_1
         # left swing
         sin_pos_l[sin_pos_l > 0] = 0
-        self.ref_dof_pos[:, 2] = sin_pos_l * scale_1
-        self.ref_dof_pos[:, 3] = -sin_pos_l * scale_2
-        self.ref_dof_pos[:, 4] = sin_pos_l * scale_1
+        self.ref_dof_pos[:, 2] = sin_pos_l * scale_2   #hippitch
+        self.ref_dof_pos[:, 3] = -sin_pos_l * scale_3  #knee
+        self.ref_dof_pos[:, 4] = sin_pos_l * scale_4   #ankle pitch
+        self.ref_dof_pos[:, 6] = 0   #toe pitch
         # print(phase[0], sin_pos_l[0])
         # right
         sin_pos_r[sin_pos_r < 0] = 0
-        self.ref_dof_pos[:, 8] = -sin_pos_r * scale_1
-        self.ref_dof_pos[:, 9] = sin_pos_r * scale_2
-        self.ref_dof_pos[:, 10] = -sin_pos_r * scale_1
+        self.ref_dof_pos[:, 9] = -sin_pos_r * scale_2 # hip pitch
+        self.ref_dof_pos[:, 10] = sin_pos_r * scale_3   # knee
+        self.ref_dof_pos[:, 11] = -sin_pos_r * scale_4  # ankle pitch
+        self.ref_dof_pos[:, 13] = 0  # toe pitch
 
         self.ref_dof_pos[torch.abs(sin_pos) < 0.05] = 0.
         
