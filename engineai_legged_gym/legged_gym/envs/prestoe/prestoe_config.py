@@ -32,14 +32,14 @@ class PrestoeCfg(LeggedRobotCfg):
         foot_name = "toe"
         knee_name = "shank_link"
 
-        # terminate_after_contacts_on = ['torso_link', "hippitch"]
-        terminate_after_contacts_on = ['torso_link', "shank_link"]
+        terminate_after_contacts_on = ['torso_link', "hippitch"]
+        # terminate_after_contacts_on = ['torso_link', "shank_link"]
         # terminate_after_contacts_on = ['torso_link', "ankle"]
         # terminate_after_contacts_on = ['torso_link', "toe"]
 
         penalize_contacts_on = ["torso_link"]
 
-        self_collisions = 1  # 1 to disable, 0 to enable...bitwise filter
+        self_collisions = 0  # 1 to disable, 0 to enable...bitwise filter
         flip_visual_attachments = False
         replace_cylinder_with_capsule = False
         fix_base_link = False
